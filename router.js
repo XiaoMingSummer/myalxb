@@ -4,6 +4,7 @@ var express = require('express')
 var getPageController =require('./controllers/getPageController')
 var usercontroller =require('./controllers/usercontrollers')
 var catagoriescontrollers =require('./controllers/catagoriescontrollers')
+var postcontroller =require('./controllers/postcontroller')
 
 var router =express.Router()
 
@@ -25,11 +26,14 @@ router.get('/',getPageController.getindexpage)
         .get('/admin/slides',getPageController.adminslidespage)
         .get('/admin/users',getPageController.adminuserspage)
 //后端业务处理
+        //  分类目录
         .post('/login',usercontroller.login)
         .get('/catagoriespage',catagoriescontrollers.catagoriespage)
         .post('/catagoriesedit',catagoriescontrollers.catagoriesedit)
         .post('/catagoriesadd',catagoriescontrollers.catagoriesadd)
         .get('/catagoriesdel',catagoriescontrollers.catagoriesdel)
+        // 所有文章
+        .get('/getposts',postcontroller.getposts)
 
 
 module.exports =router

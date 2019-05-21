@@ -5,6 +5,7 @@ var getlist =()=>{
         url:'/catagoriespage',
         dataType:'json',
         success:function(results){
+            console.log(results)
            var html = template('catagories',{list:results})
            $('tbody').html(html)
         }
